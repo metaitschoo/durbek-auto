@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANDIJON AVTO AUKSION — Elektron Avtoraqamlar Platformasi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-overlay">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <p class="loader-text">ANDIJON AVTO AUKSION yuklanmoqda...</p>
+        </div>
+    </div>
+
+    <!-- Demo Banner -->
+    <div class="demo-notice">
+        <div class="container demo-notice-inner">
+            <span class="demo-badge">DEMO REJIM</span>
+            <p>Ushbu platforma namoyish (demo) rejimida ishlaydi. Barcha savdolar, narxlar va ma'lumotlar o‘quv va tanishuv maqsadida yaratilgan bo‘lib, haqiqiy to‘lov yoki davlat tizimiga ulanmagan.</p>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">60</div>
+                <div class="logo-text">
+                    <span class="logo-title">ANDIJON AVTO</span>
+                    <span class="logo-sub">AUKSION PORTALI</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Bosh sahifa</a>
+                <a href="#catalog" class="nav-link">Raqamlar katalogi</a>
+                <a href="#auctions" class="nav-link">Auksionlar</a>
+                <a href="#favorites" class="nav-link">
+                    Sevimlilar <span class="badge-count" id="favCountBadge">0</span>
+                </a>
+                <a href="#about" class="nav-link">Biz haqimizda</a>
+                <a href="#contact" class="nav-link">Aloqa</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="icon-btn" title="Tungi / Kunduzgi rejim" aria-label="Mavzuni o‘zgartirish">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                <div id="userControls">
+                    <button id="authOpenBtn" class="btn btn-primary btn-sm">Kirish / Ro‘yxatdan o‘tish</button>
+                </div>
+
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menyuni ochish">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <div class="hero-tag">
+                        <span class="pulse-dot"></span> Andijon viloyati (60 hudud) • Elektron Savdo
+                    </div>
+                    <h1 class="hero-title">O‘ZINGIZ UCHUN ENG CHIROYLI AVTO RAQAMNI TANLANG!</h1>
+                    <p class="hero-subtitle">Orzuingizdagi avtomobil raqami endi bir necha bosqichda sizniki bo‘lishi mumkin!</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#catalog" class="btn btn-gold btn-lg">
+                            <span>Raqam tanlash</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#auctions" class="btn btn-outline-light btn-lg">Auksionni ko‘rish</a>
+                    </div>
+
+                    <!-- Mini Plate Preview in Hero -->
+                    <div class="hero-plate-showcase">
+                        <div class="uz-plate uz-plate-lg">
+                            <div class="plate-region">60</div>
+                            <div class="plate-divider"></div>
+                            <div class="plate-number">A 777 AA</div>
+                            <div class="plate-flag">
+                                <div class="flag-stripes">
+                                    <span class="f-blue"></span>
+                                    <span class="f-white"></span>
+                                    <span class="f-green"></span>
+                                </div>
+                                <span class="uz-code">UZ</span>
+                            </div>
+                        </div>
+                        <span class="showcase-caption">Andijon viloyatining eng nufuzli kombinatsiyalari</span>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper reveal">
+                    <div class="hero-car-card">
+                        <img 
+                            src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=1200&q=80" 
+                            alt="Zamonaviy premium avtomobil Andijon avto auksion"
+                            class="hero-car-img"
+                            onerror="this.onerror=null; this.src='https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200';"
+                        >
+                        <div class="floating-bid-card">
+                            <div class="fb-header">
+                                <span class="live-indicator">● JONLI AUKSION</span>
+                                <span class="fb-lot">Lot #60-777</span>
+                            </div>
+                            <div class="fb-plate">60 A 777 AA</div>
+                            <div class="fb-price">Joriy narx: <strong>85 500 000 so‘m</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card reveal">
+                        <div class="stat-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="statActiveAuctions">12</h3>
+                            <p class="stat-label">Faol auksionlar soni</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card reveal">
+                        <div class="stat-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                                <line x1="7" y1="6" x2="7" y2="18"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="statTotalPlates">12</h3>
+                            <p class="stat-label">Sotuvdagi raqamlar soni</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card reveal">
+                        <div class="stat-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="statUsersCount">1 485</h3>
+                            <p class="stat-label">Faol foydalanuvchilar soni</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card reveal">
+                        <div class="stat-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-value">24/7</h3>
+                            <p class="stat-label">Onlayn demo savdo tizimi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog & Filter Section -->
+        <section id="catalog" class="catalog-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">ANDIJON VILOYATI • 60 HUDUD</span>
+                    <h2 class="section-title">Avtomobil Davlat Raqamlari Katalogi</h2>
+                    <p class="section-desc">O‘zingizga mos raqam kombinatsiyasini qidiring, saralang va jonli auksionda taklif bildiring.</p>
+                </div>
+
+                <!-- Search & Filters Bar -->
+                <div class="filter-panel reveal" id="auctions">
+                    <div class="search-box">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Raqam bo‘yicha qidirish (masalan: 777, 001, AA)...">
+                        <button id="clearSearchBtn" class="clear-search" title="Tozalash" style="display:none;">✕</button>
+                    </div>
+
+                    <div class="filter-controls">
+                        <div class="filter-pills" id="categoryFilters">
+                            <button class="filter-pill active" data-filter="all">Barchasi</button>
+                            <button class="filter-pill" data-filter="cheapest">Eng arzon</button>
+                            <button class="filter-pill" data-filter="expensive">Eng qimmat</button>
+                            <button class="filter-pill" data-filter="newest">Yangi qo‘shilganlar</button>
+                            <button class="filter-pill" data-filter="ending">Tugashiga oz qolganlar</button>
+                            <button class="filter-pill" data-filter="special">Maxsus kombinatsiyalar</button>
+                        </div>
+
+                        <div class="sort-select-wrapper">
+                            <label for="sortSelect">Saralash:</label>
+                            <select id="sortSelect" class="sort-select">
+                                <option value="default">Standart tartib</option>
+                                <option value="price-asc">Narx: Arzondan qimmatga</option>
+                                <option value="price-desc">Narx: Qimmatdan arzonga</option>
+                                <option value="ending-soon">Vaqt: Tez tugaydiganlar</option>
+                                <option value="bids-desc">Faollik: Ko‘p takliflar</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Summary -->
+                <div class="catalog-meta">
+                    <p id="resultsCounter">Jami <strong>12</strong> ta davlat raqami topildi</p>
+                    <button id="resetFiltersBtn" class="btn-link" style="display:none;">Filtrlarni tozalash</button>
+                </div>
+
+                <!-- Plates Grid -->
+                <div class="plates-grid" id="platesGrid">
+                    <!-- Cards will be dynamically rendered by script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="favorites-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">SHAXSIY TANLOV</span>
+                    <h2 class="section-title">Sevimli Davlat Raqamlaringiz</h2>
+                    <p class="section-desc">Yurakcha belgisi orqali saqlangan barcha avtoraqamlar shu yerda jamlanadi.</p>
+                </div>
+
+                <div id="favoritesContainer" class="plates-grid">
+                    <!-- Saved favorite plates rendered via JS -->
+                </div>
+
+                <div id="emptyFavorites" class="empty-state">
+                    <div class="empty-icon">♡</div>
+                    <h3>Hozircha sevimli raqamlar yo‘q</h3>
+                    <p>Katalogdagi yoqtirgan avtoraqamingiz kartochkasidagi yurakcha tugmasini bosing.</p>
+                    <a href="#catalog" class="btn btn-primary">Katalogga o‘tish</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Andijon Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-images reveal">
+                        <div class="about-img-main">
+                            <img 
+                                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1000&q=80" 
+                                alt="Andijon viloyati avtomobil yo‘llari va zamonaviy transport"
+                                onerror="this.onerror=null; this.src='https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1000';"
+                            >
+                            <div class="region-badge-overlay">
+                                <span class="rb-code">60</span>
+                                <span class="rb-name">ANDIJON VILOYATI</span>
+                            </div>
+                        </div>
+                        <div class="about-img-secondary">
+                            <img 
+                                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" 
+                                alt="Premium avtomobil va davlat raqami madaniyati"
+                                onerror="this.onerror=null; this.src='https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=800';"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="about-content reveal">
+                        <span class="section-tag">BIZ HAQIMIZDA</span>
+                        <h2 class="section-title">Andijon Avtomobilsozlik Markazi va Raqamlar Madaniyati</h2>
+                        <p class="about-text">
+                            Andijon viloyati O‘zbekiston avtomobil sanoatining yuragi hisoblanadi. <strong>60</strong> hududiy kodi bilan boshlanuvchi davlat raqamlari vodiy gavhari bo‘lmish Andijon haydovchilari uchun alohida g‘urur va nufuz ramzidir.
+                        </p>
+                        <p class="about-text">
+                            <strong>ANDIJON AVTO AUKSION</strong> — bu foydalanuvchilarga o‘z avtomobili uchun chiroyli, esda qolarli va maxsus kombinatsiyali raqamlarni qulay, shaffof va zamonaviy interfeysda tanlash hamda demo auksion jarayonini sinab ko‘rish imkonini beruvchi elektron platforma.
+                        </p>
+
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-check">✓</div>
+                                <div>
+                                    <h4>Shaffof Demo Savdo Jarayoni</h4>
+                                    <p>Har bir taklif real vaqt rejimida yangilanadi va takliflar tarixida saqlanadi.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-check">✓</div>
+                                <div>
+                                    <h4>Andijon 60 Hududiy Maxsus To‘plami</h4>
+                                    <p>Oltin, ko‘zgu va ketma-ket raqamlarning eng sara kombinatsiyalari.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-check">✓</div>
+                                <div>
+                                    <h4>Tezkor Qidiruv va Qulay Interfeys</h4>
+                                    <p>Kompyuter va barcha mobil qurilmalarda birdek tez va ravon ishlaydi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">BOG‘LANISH</span>
+                    <h2 class="section-title">Aloqa va Manzil</h2>
+                    <p class="section-desc">Savollaringiz yoki takliflaringiz bo‘lsa, demo aloqa ma'lumotlari orqali murojaat qilishingiz mumkin.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info-card reveal">
+                        <h3>Aloqa Ma'lumotlari (Demo)</h3>
+                        <p class="contact-note">Eslatma: Quyidagi telefon va elektron pochta ma'lumotlari namoyish (demo) maqsadida keltirilgan.</p>
+
+                        <div class="contact-items">
+                            <div class="c-item">
+                                <div class="c-icon">📍</div>
+                                <div>
+                                    <h4>Hudud</h4>
+                                    <p>O‘zbekiston Respublikasi, Andijon viloyati, Andijon shahri</p>
+                                </div>
+                            </div>
+
+                            <div class="c-item">
+                                <div class="c-icon">📞</div>
+                                <div>
+                                    <h4>Demo Telefon Raqam</h4>
+                                    <p>+998 (74) 000-00-00 (Demo liniya)</p>
+                                </div>
+                            </div>
+
+                            <div class="c-item">
+                                <div class="c-icon">✉️</div>
+                                <div>
+                                    <h4>Demo Elektron Pochta</h4>
+                                    <p>info@andijon-avtoauksion.demo</p>
+                                </div>
+                            </div>
+
+                            <div class="c-item">
+                                <div class="c-icon">🕒</div>
+                                <div>
+                                    <h4>Platforma Ish Vaqti</h4>
+                                    <p>Dushanba – Yakshanba: 24/7 (Onlayn Demo)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="contactForm" class="contact-form">
+                            <h4>Xabar yuborish</h4>
+                            <div class="form-group">
+                                <input type="text" id="contactName" placeholder="Ismingiz" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="contactPhone" placeholder="+998 90 123 45 67" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contactMsg" rows="3" placeholder="Xabaringiz matni..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Xabarni yuborish</button>
+                        </form>
+                    </div>
+
+                    <div class="map-card reveal">
+                        <iframe 
+                            title="Andijon shahri xaritasi"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96690.80542089987!2d72.27503515!3d40.7820612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bc901d6b13d4ef%3A0xb65b2e2625f6e520!2sAndijan%2C%20Andijan%20Region%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <div class="logo-icon">60</div>
+                        <div class="logo-text">
+                            <span class="logo-title">ANDIJON AVTO</span>
+                            <span class="logo-sub">AUKSION PORTALI</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">
+                        Andijon viloyati (60 hudud) uchun zamonaviy elektron avtomobil davlat raqamlari katalogi va interaktiv demo auksion platformasi.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Tezkor Havolalar</h4>
+                    <ul>
+                        <li><a href="#home">Bosh sahifa</a></li>
+                        <li><a href="#catalog">Raqamlar katalogi</a></li>
+                        <li><a href="#auctions">Faol auksionlar</a></li>
+                        <li><a href="#favorites">Sevimlilar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Ma'lumotlar</h4>
+                    <ul>
+                        <li><a href="#about">Biz haqimizda</a></li>
+                        <li><a href="#contact">Aloqa bo‘limi</a></li>
+                        <li><a href="#" id="footerAuthLink">Shaxsiy kabinet</a></li>
+                        <li><a href="#catalog">Maxsus raqamlar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-disclaimer">
+                    <h4>Muhim Eslatma</h4>
+                    <p>
+                        Ushbu veb-sayt faqat demo (namoyish) maqsadida ishlab chiqilgan. Saytda haqiqiy moliyaviy operatsiyalar amalga oshirilmaydi va davlat organlari tizimlariga ulanmagan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ANDIJON AVTO AUKSION. Barcha huquqlar himoyalangan (Demo Platforma).</p>
+                <p>Andijon, O‘zbekiston • 60 Hudud</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Yuqoriga qaytish" aria-label="Yuqoriga qaytish">
+        ↑
+    </button>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- MODAL 1: Plate Details & Live Auction Modal -->
+    <div id="plateModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-box modal-lg">
+            <button class="modal-close" id="closePlateModal" aria-label="Yopish">&times;</button>
+            <div class="modal-body" id="plateModalContent">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Registration & Login Modal -->
+    <div id="authModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-box modal-sm">
+            <button class="modal-close" id="closeAuthModal" aria-label="Yopish">&times;</button>
+            
+            <div class="auth-header">
+                <div class="logo-icon mx-auto">60</div>
+                <h3>ANDIJON AVTO AUKSION</h3>
+                <p>Demo auksionda ishtirok etish uchun tizimga kiring</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="register">Ro‘yxatdan o‘tish</button>
+                <button class="auth-tab" data-tab="login">Kirish</button>
+            </div>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="regName">Ism va familiya *</label>
+                    <input type="text" id="regName" placeholder="Masalan: Jasurbek Karimov" required>
+                    <small class="error-msg" id="regNameError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPhone">Telefon raqam (+998) *</label>
+                    <input type="tel" id="regPhone" placeholder="+998 90 123 45 67" value="+998 " required>
+                    <small class="error-msg" id="regPhoneError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPassword">Parol *</label>
+                    <input type="password" id="regPassword" placeholder="Kamida 6 ta belgi" required>
+                    <small class="error-msg" id="regPasswordError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="regConfirmPassword">Parolni tasdiqlash *</label>
+                    <input type="password" id="regConfirmPassword" placeholder="Parolni qayta kiriting" required>
+                    <small class="error-msg" id="regConfirmError"></small>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Ro‘yxatdan o‘tish</button>
+                <button type="button" id="skipAuthBtn" class="btn-link btn-block mt-2">Mehmon sifatida ko‘rish</button>
+            </form>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginPhone">Telefon raqam (+998) *</label>
+                    <input type="tel" id="loginPhone" placeholder="+998 90 123 45 67" value="+998 " required>
+                    <small class="error-msg" id="loginPhoneError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Parol *</label>
+                    <input type="password" id="loginPassword" placeholder="Parolingizni kiriting" required>
+                    <small class="error-msg" id="loginPasswordError"></small>
+                </div>
+
+                <button type="submit" class="btn btn-gold btn-block">Tizimga kirish</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
